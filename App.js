@@ -43,6 +43,45 @@ export default class App extends Component<{},State> {
       };
   }
 
+  getLocationObject(){
+      return{
+          city: "Knoxville",
+          state: "TN",
+          lat: 35.9606,
+          lon: 83.9207
+      };
+  }
+
+  getWeatherObject(){
+      return[
+          {
+              high: 50,
+              low: 40,
+              condition: "Sunny"
+          },
+          {
+              high: 50,
+              low: 40,
+              condition: "Sunny"
+          },
+          {
+              high: 50,
+              low: 40,
+              condition: "Sunny"
+          },
+          {
+              high: 50,
+              low: 40,
+              condition: "Sunny"
+          },
+          {
+              high: 50,
+              low: 40,
+              condition: "Sunny"
+          }
+      ];
+  }
+
   constructor(){
     super();
 
@@ -51,19 +90,8 @@ export default class App extends Component<{},State> {
     this.state = {
         date: dateTimeObject.date,
         time: dateTimeObject.time,
-        weather: [
-            {
-                high: 50,
-                low: 40,
-                condition: "Sunny"
-            },
-            {
-                high: 40,
-                low: 30,
-                condition: "Rainy"
-            }
-        ],
-        location: "Knoxville, TN"
+        weather: this.getWeatherObject(),
+        location: this.getLocationObject()
     };
   }
 
@@ -104,7 +132,8 @@ export default class App extends Component<{},State> {
           <Text> {weather}</Text>
 
           <Text style={styles.welcome}>Location: </Text>
-          <Text>{this.state.location}</Text>
+          <Text>{this.state.location.city} ,{this.state.location.state}</Text>
+          <Text>{this.state.location.lat}&deg;N  : {this.state.location.lon}&deg;S</Text>
       </View>
     );
   }
