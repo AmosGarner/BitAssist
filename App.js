@@ -12,32 +12,10 @@ import DateObject from './Domain/DateObject';
 import DateBlock from "./UI/Containers/DateBlock";
 import HexTimeBlock from "./UI/Containers/HexTimeBlock";
 import BinTimeBlock from "./UI/Containers/BinTimeBlock";
+import WeatherBlock from "./UI/Containers/WeatherBlock";
+import WeatherObject from "./Domain/WeatherObject";
 
 export default class App extends Component<{},State> {
-
-  isTimeAfterNoon(hour){
-    return hour > 12;
-  }
-
-  getDateTimeObject(){
-      let dateObj = new Date();
-
-      let date = {
-          day: dateObj.getDate(),
-          month: dateObj.getMonth()+1,
-          year: dateObj.getYear()-100
-      };
-      let time = {
-          isAfternoon: this.isTimeAfterNoon(dateObj.getHours()) ,
-          hour: (dateObj.getHours() > 12 ? dateObj.getHours()-12:dateObj.getHours()),
-          minute: dateObj.getMinutes(),
-          second: dateObj.getSeconds()
-      };
-
-      return {
-        date: date, time: time
-      };
-  }
 
   getLocationObject(){
       return{
@@ -48,55 +26,22 @@ export default class App extends Component<{},State> {
       };
   }
 
-  getWeatherObject(){
-      return[
-          {
-              high: 50,
-              low: 40,
-              condition: "Sunny"
-          },
-          {
-              high: 50,
-              low: 40,
-              condition: "Sunny"
-          },
-          {
-              high: 50,
-              low: 40,
-              condition: "Sunny"
-          },
-          {
-              high: 50,
-              low: 40,
-              condition: "Sunny"
-          },
-          {
-              high: 50,
-              low: 40,
-              condition: "Sunny"
-          }
-      ];
-  }
-
   constructor(){
     super();
-
-    dateTimeObject = this.getDateTimeObject();
-
     this.state = {
-        date: dateTimeObject.date,
-        time: dateTimeObject.time,
-        weather: this.getWeatherObject(),
         location: this.getLocationObject()
     };
   }
 
   render() {
-    let weather = this.state.weather.map((entry) => {
-      return(<Text>{entry.condition}{'\n'}Hi: {entry.high}{'\n'}{entry.low}{'\n'}</Text>);
-    });
-
     let timeObject = new TimeObject();
+    let weatherArray = [
+        new WeatherObject(),
+        new WeatherObject(),
+        new WeatherObject(),
+        new WeatherObject(),
+        new WeatherObject()
+    ];
 
     return (
       <View style={styles.container}>
@@ -108,8 +53,7 @@ export default class App extends Component<{},State> {
 
           <DateBlock date={new DateObject()} />
 
-          <Text style={styles.welcome}>Weather: </Text>
-          <Text> {weather}</Text>
+          <WeatherBlock weather={weatherArray}/>
 
           <Text style={styles.welcome}>Location: </Text>
           <Text>{this.state.location.city} ,{this.state.location.state}</Text>
