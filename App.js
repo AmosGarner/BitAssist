@@ -10,16 +10,10 @@ import TimeBlock from './UI/Containers/TimeBlock';
 import TimeObject from './Domain/TimeObject';
 import DateObject from './Domain/DateObject';
 import DateBlock from "./UI/Containers/DateBlock";
+import HexTimeBlock from "./UI/Containers/HexTimeBlock";
+import BinTimeBlock from "./UI/Containers/BinTimeBlock";
 
 export default class App extends Component<{},State> {
-
-  dec2Bin(value){
-      return parseInt(value, 10).toString(2);
-  }
-
-  dec2Hex(value){
-      return parseInt(value, 10).toString(16).toUpperCase();
-  }
 
   isTimeAfterNoon(hour){
     return hour > 12;
@@ -102,17 +96,15 @@ export default class App extends Component<{},State> {
       return(<Text>{entry.condition}{'\n'}Hi: {entry.high}{'\n'}{entry.low}{'\n'}</Text>);
     });
 
+    let timeObject = new TimeObject();
+
     return (
       <View style={styles.container}>
-          <TimeBlock time={new TimeObject()} />
+          <TimeBlock time={timeObject} />
 
-          <Text style={styles.welcome}>Hexadecimal Time: </Text>
-          <Text>
-              #{this.dec2Hex(this.state.time.hour)}
-              {this.dec2Hex(this.state.time.minute)}
-              {this.dec2Hex(this.state.time.second) + " "}
-              {this.state.time.isAfternoon ?"PM":"AM"}
-          </Text>
+          <BinTimeBlock time={timeObject} />
+
+          <HexTimeBlock time={timeObject} />
 
           <DateBlock date={new DateObject()} />
 
