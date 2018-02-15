@@ -6,8 +6,8 @@ import {
   View,
 
 } from 'react-native';
-
-type State = {};
+import TimeBlock from './UI/Containers/TimeBlock';
+import TimeObject from './Domain/TimeObject';
 
 export default class App extends Component<{},State> {
 
@@ -98,24 +98,13 @@ export default class App extends Component<{},State> {
   render() {
     let weather = this.state.weather.map((entry) => {
       return(<Text>{entry.condition}{'\n'}Hi: {entry.high}{'\n'}{entry.low}{'\n'}</Text>);
-    })
+    });
+
+    let timeObject = new TimeObject();
+
     return (
       <View style={styles.container}>
-          <Text style={styles.welcome}>Time: </Text>
-          <Text>
-              {this.state.time.hour}:
-              {this.state.time.minute}:
-              {this.state.time.second + " "}
-              {this.state.time.isAfternoon ?"PM":"AM"}
-          </Text>
-
-          <Text style={styles.welcome}>Binary Time: </Text>
-          <Text>
-              {this.dec2Bin(this.state.time.hour)}:
-              {this.dec2Bin(this.state.time.minute)}:
-              {this.dec2Bin(this.state.time.second) + " "}
-              {this.state.time.isAfternoon ?"PM":"AM"}
-          </Text>
+          <TimeBlock time={timeObject} />
 
           <Text style={styles.welcome}>Hexadecimal Time: </Text>
           <Text>
@@ -134,6 +123,7 @@ export default class App extends Component<{},State> {
           <Text style={styles.welcome}>Location: </Text>
           <Text>{this.state.location.city} ,{this.state.location.state}</Text>
           <Text>{this.state.location.lat}&deg;N  : {this.state.location.lon}&deg;S</Text>
+
       </View>
     );
   }
