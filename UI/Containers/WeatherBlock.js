@@ -7,11 +7,9 @@ import {
 
 export default class WeatherBlock extends Component<{},{}>{
     render(){
-        let weather = this.props.weather.map((entry) => {
+        let weather = this.props.weather.map((entry, index) => {
             return(
-                <View>
-                    <Text>{entry.condition} : {entry.high} / {entry.low}</Text>
-                </View>
+                <Text key={index}>{entry.condition} : {entry.high} / {entry.low}</Text>
 
             );
         });
