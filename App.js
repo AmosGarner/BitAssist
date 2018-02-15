@@ -1,38 +1,110 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+type State = {};
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component<{},State> {
+
+  dec2Bin(value){
+      return parseInt(value, 10).toString(2);
+  }
+
+  dec2Hex(value){
+      return parseInt(value, 10).toString(16).toUpperCase();
+  }
+
+  isTimeAfterNoon(hour){
+    return hour > 12;
+  }
+
+  getDateTimeObject(){
+      let dateObj = new Date();
+
+      let date = {
+          day: dateObj.getDate(),
+          month: dateObj.getMonth()+1,
+          year: dateObj.getYear()-100
+      };
+      let time = {
+          isAfternoon: this.isTimeAfterNoon(dateObj.getHours()) ,
+          hour: (dateObj.getHours() > 12 ? dateObj.getHours()-12:dateObj.getHours()),
+          minute: dateObj.getMinutes(),
+          second: dateObj.getSeconds()
+      };
+
+      return {
+        date: date, time: time
+      };
+  }
+
+  constructor(){
+    super();
+
+    dateTimeObject = this.getDateTimeObject();
+
+    this.state = {
+        date: dateTimeObject.date,
+        time: dateTimeObject.time,
+        weather: [
+            {
+                high: 50,
+                low: 40,
+                condition: "Sunny"
+            },
+            {
+                high: 40,
+                low: 30,
+                condition: "Rainy"
+            }
+        ],
+        location: "Knoxville, TN"
+    };
+  }
+
   render() {
+    let weather = this.state.weather.map((entry) => {
+      return(<Text>{entry.condition}{'\n'}Hi: {entry.high}{'\n'}{entry.low}{'\n'}</Text>);
+    })
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+          <Text style={styles.welcome}>Time: </Text>
+          <Text>
+              {this.state.time.hour}:
+              {this.state.time.minute}:
+              {this.state.time.second + " "}
+              {this.state.time.isAfternoon ?"PM":"AM"}
+          </Text>
+
+          <Text style={styles.welcome}>Binary Time: </Text>
+          <Text>
+              {this.dec2Bin(this.state.time.hour)}:
+              {this.dec2Bin(this.state.time.minute)}:
+              {this.dec2Bin(this.state.time.second) + " "}
+              {this.state.time.isAfternoon ?"PM":"AM"}
+          </Text>
+
+          <Text style={styles.welcome}>Hexadecimal Time: </Text>
+          <Text>
+              #{this.dec2Hex(this.state.time.hour)}
+              {this.dec2Hex(this.state.time.minute)}
+              {this.dec2Hex(this.state.time.second) + " "}
+              {this.state.time.isAfternoon ?"PM":"AM"}
+          </Text>
+
+          <Text style={styles.welcome}>Date: </Text>
+          <Text>{this.state.date.day} / {this.state.date.month} / {this.state.date.year}</Text>
+
+          <Text style={styles.welcome}>Weather: </Text>
+          <Text> {weather}</Text>
+
+          <Text style={styles.welcome}>Location: </Text>
+          <Text>{this.state.location}</Text>
       </View>
     );
   }
