@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import TimeBlock from './UI/Containers/TimeBlock';
 import TimeObject from './Domain/TimeObject';
+import DateObject from './Domain/DateObject';
+import DateBlock from "./UI/Containers/DateBlock";
 
 export default class App extends Component<{},State> {
 
@@ -100,11 +102,9 @@ export default class App extends Component<{},State> {
       return(<Text>{entry.condition}{'\n'}Hi: {entry.high}{'\n'}{entry.low}{'\n'}</Text>);
     });
 
-    let timeObject = new TimeObject();
-
     return (
       <View style={styles.container}>
-          <TimeBlock time={timeObject} />
+          <TimeBlock time={new TimeObject()} />
 
           <Text style={styles.welcome}>Hexadecimal Time: </Text>
           <Text>
@@ -114,8 +114,7 @@ export default class App extends Component<{},State> {
               {this.state.time.isAfternoon ?"PM":"AM"}
           </Text>
 
-          <Text style={styles.welcome}>Date: </Text>
-          <Text>{this.state.date.day} / {this.state.date.month} / {this.state.date.year}</Text>
+          <DateBlock date={new DateObject()} />
 
           <Text style={styles.welcome}>Weather: </Text>
           <Text> {weather}</Text>
