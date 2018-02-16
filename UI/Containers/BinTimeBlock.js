@@ -10,8 +10,7 @@ import {dec2Bin} from '../../Domain/BaseConvertor';
 export default class BinTimeBlock extends Component<{},{}>{
     render(){
         return(
-            <View style={this.binTimeBlockStyles.container}>
-                <Text>Binary Time: </Text>
+            <View style={this.props.style}>
                 <Text>
                     #{dec2Bin(this.props.time.hour)}:
                     {dec2Bin(this.props.time.minute)}:
@@ -20,10 +19,4 @@ export default class BinTimeBlock extends Component<{},{}>{
             </View>
         );
     }
-
-    binTimeBlockStyles = StyleSheet.create({
-        container: {
-            alignItems: 'center'
-        }
-    });
 }

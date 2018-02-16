@@ -9,7 +9,7 @@ import {
 export default class TimeBlock extends Component<{},{}>{
     render(){
         return(
-            <View style={this.timeBlockStyles.container}>
+            <View style={this.props.style}>
                 <Text>Time Block: {(this.props.time.militaryTime)?"Military":"Standard"}</Text>
                 <Text>
                     {this.props.time.hour}:
@@ -20,10 +20,4 @@ export default class TimeBlock extends Component<{},{}>{
             </View>
         );
     }
-
-    timeBlockStyles = StyleSheet.create({
-        container: {
-            alignItems: 'center'
-        }
-    });
 }

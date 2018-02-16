@@ -10,7 +10,7 @@ import {dec2Hex} from '../../Domain/BaseConvertor';
 export default class HexTimeBlock extends Component<{},{}>{
     render(){
         return(
-            <View style={this.hexTimeBlockStyles.container}>
+            <View style={this.props.style}>
                 <Text>Hexadecimal Time: </Text>
                 <Text>
                     #{dec2Hex(this.props.time.hour)}:
@@ -20,10 +20,4 @@ export default class HexTimeBlock extends Component<{},{}>{
             </View>
         );
     }
-
-    hexTimeBlockStyles = StyleSheet.create({
-        container: {
-            alignItems: 'center'
-        }
-    });
 }

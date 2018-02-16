@@ -4,5 +4,9 @@ export function dec2Bin(value){
 }
 
 export function  dec2Hex(value){
-    return parseInt(value, 10).toString(16).toUpperCase();
+    let hexValue = parseInt(value, 10).toString(16).toUpperCase();
+    if(hexValue.length <=1){
+        return "0"+hexValue;
+    }
+    return hexValue
 }

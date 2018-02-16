@@ -30,38 +30,22 @@ export default class App extends Component<{},State> {
 
     return (
       <View style={styles.container}>
-          <TimeBlock time={timeObject} />
-          <Text>{'\n'}</Text>
-          <BinTimeBlock time={timeObject} />
-          <Text>{'\n'}</Text>
-          <HexTimeBlock time={timeObject} />
-          <Text>{'\n'}</Text>
-          <DateBlock date={new DateObject()} />
-          <Text>{'\n'}</Text>
-          <WeatherBlock weather={weatherArray}/>
-          <Text>{'\n'}</Text>
-          <LocationBlock location={new LocationObject()}/>
-
+          <TimeBlock time={timeObject} style={styles.container}/>
+          <BinTimeBlock time={timeObject} style={styles.container}/>
+          <HexTimeBlock time={timeObject} style={styles.container}/>
+          <DateBlock date={new DateObject()} style={styles.container}/>
+          <WeatherBlock weather={weatherArray} style={styles.container}/>
+          <LocationBlock location={new LocationObject()} style={styles.container}/>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    }
 });
