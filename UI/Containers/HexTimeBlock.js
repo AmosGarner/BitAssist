@@ -15,8 +15,7 @@ export default class HexTimeBlock extends Component<{},{}>{
                 <Text>
                     #{dec2Hex(this.props.time.hour)}:
                     {dec2Hex(this.props.time.minute)}:
-                    {dec2Hex(this.props.time.second) + " "}
-                    {this.props.time.isAfternoon}
+                    {dec2Hex(this.props.time.second)}
                 </Text>
             </View>
         );

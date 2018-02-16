@@ -15,7 +15,7 @@ export default class TimeBlock extends Component<{},{}>{
                     {this.props.time.hour}:
                     {this.props.time.minute}:
                     {this.props.time.second + " "}
-                    {this.props.time.isAfternoon ?"PM":"AM"}
+                    {this.props.time.indicator}
                 </Text>
             </View>
         );

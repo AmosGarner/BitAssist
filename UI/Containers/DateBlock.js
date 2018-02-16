@@ -11,7 +11,7 @@ export default class DateBlock extends Component<{},{}>{
         return(
             <View style={this.dateBlockStyles.container}>
                 <Text>Date: </Text>
-                <Text>{this.props.date.day} / {this.props.date.month} / {this.props.date.year}</Text>
+                <Text>{this.props.date.month} / {this.props.date.day} / {this.props.date.year}</Text>
             </View>
         );
     }

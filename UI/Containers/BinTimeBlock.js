@@ -11,12 +11,11 @@ export default class BinTimeBlock extends Component<{},{}>{
     render(){
         return(
             <View style={this.binTimeBlockStyles.container}>
-                <Text>Hexadecimal Time: </Text>
+                <Text>Binary Time: </Text>
                 <Text>
                     #{dec2Bin(this.props.time.hour)}:
                     {dec2Bin(this.props.time.minute)}:
-                    {dec2Bin(this.props.time.second) + " "}
-                    {this.props.time.isAfternoon}
+                    {dec2Bin(this.props.time.second)}
                 </Text>
             </View>
         );

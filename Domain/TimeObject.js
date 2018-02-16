@@ -11,6 +11,6 @@ export default class TimeObject{
         this.hour = date.getHours();
         this.minute = date.getMinutes();
         this.second = date.getSeconds();
-        this.indicator = (this.hour >= 12 ?"AM":"PM");
+        this.indicator = (this.hour >= 12 ?"PM":"AM");
     }
 }
