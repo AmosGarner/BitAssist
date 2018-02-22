@@ -29,23 +29,23 @@ export default class App extends Component<{},State> {
     ];
 
     return (
-      <View style={styles.container}>
-          <TimeBlock time={timeObject} style={styles.container}/>
-          <BinTimeBlock time={timeObject} style={styles.container}/>
-          <HexTimeBlock time={timeObject} style={styles.container}/>
-          <DateBlock date={new DateObject()} style={styles.container}/>
-          <WeatherBlock weather={weatherArray} style={styles.container}/>
-          <LocationBlock location={new LocationObject()} style={styles.container}/>
+      <View style={styles.appContainer}>
+          <TimeBlock time={timeObject}/>
+          <BinTimeBlock time={timeObject}/>
+          <HexTimeBlock time={timeObject}/>
+          <DateBlock date={new DateObject()}/>
+          <WeatherBlock weather={weatherArray}/>
+          <LocationBlock location={new LocationObject()}/>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-    container: {
+    appContainer: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    }
+        backgroundColor: '#46413c',
+    },
 });
