@@ -5,25 +5,19 @@ import {
     View,
 
 } from 'react-native';
+import "isomorphic-fetch";
 
 export default class LocationBlock extends Component<{},{}>{
     constructor(){
         super();
-        this.state = {
-            latitude: null,
-            longitude: null,
-            city: null,
-
-        }
-    }
-
-    componentWillMount(){
+        this.state = {};
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 this.setState({
                     latitude: position.coords.latitude,
                     longitude: position.coords.longitude
                 });
+                this.GetLocationFromCoords();
             },
             (error) => {
                 alert(error.message);
@@ -36,12 +30,27 @@ export default class LocationBlock extends Component<{},{}>{
         );
     }
 
+    GetLocationFromCoords(){
+        fetch('https://maps.googleapis.com/maps/api/geocode/json?latlng='+ this.state.latitude + ','+ this.state.longitude+ '&sensor=true')
+            .then((response) => response.json())
+            .then((response) => {
+                let locationData = response.results[0].address_components;
+                this.setState({
+                    city: locationData[3].short_name,
+                    county: locationData[4].short_name,
+                    state: locationData[5].short_name,
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
     render(){
         return(
             <View style={this.props.style}>
                 <Text>Location: </Text>
-                <Text>{this.props.location.city} ,{this.props.location.state}</Text>
-                <Text>{this.state.latitude} : {this.state.longitude}</Text>
+                <Text>{this.state.city} , {this.state.county} , {this.state.state}</Text>
             </View>
         );
     }
