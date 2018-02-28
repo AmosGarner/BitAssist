@@ -15,7 +15,7 @@ import BinTimeBlock from "./UI/Containers/BinTimeBlock";
 import WeatherBlock from "./UI/Containers/WeatherBlock";
 import WeatherObject from "./Domain/WeatherObject";
 import LocationBlock from "./UI/Containers/LocationBlock";
-import LocationObject from "./Domain/LocationObject";
+import Styles from "./UI/Assets/Styles";
 
 export default class App extends Component<{},State> {
   render() {
@@ -29,23 +29,14 @@ export default class App extends Component<{},State> {
     ];
 
     return (
-      <View style={styles.appContainer}>
+      <View style={Styles.appContainer.ios}>
           <TimeBlock time={timeObject}/>
           <BinTimeBlock time={timeObject}/>
           <HexTimeBlock time={timeObject}/>
           <DateBlock date={new DateObject()}/>
           <WeatherBlock weather={weatherArray}/>
-          <LocationBlock location={new LocationObject()}/>
+          <LocationBlock/>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-    appContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#46413c',
-    },
-});
