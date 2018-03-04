@@ -5,13 +5,15 @@ import {
     View,
 
 } from 'react-native';
+import Styles from "../Assets/Styles";
 
 export default class DateBlock extends Component<{},{}>{
     render(){
         return(
             <View style={this.props.style}>
-                <Text>Date: </Text>
-                <Text>{this.props.date.month} / {this.props.date.day} / {this.props.date.year}</Text>
+                <View style={Styles.column}>
+                    <Text style={Styles.largeText}>{this.props.date.month} / {this.props.date.day} / {this.props.date.year}</Text>
+                </View>
             </View>
         );
     }

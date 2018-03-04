@@ -6,6 +6,7 @@ import {
 
 } from 'react-native';
 import "isomorphic-fetch";
+import Styles from '../Assets/Styles';
 
 export default class LocationBlock extends Component<{},{}>{
     constructor(){
@@ -49,8 +50,9 @@ export default class LocationBlock extends Component<{},{}>{
     render(){
         return(
             <View style={this.props.style}>
-                <Text>Location: </Text>
-                <Text>{this.state.city} , {this.state.county} , {this.state.state}</Text>
+                <View style={Styles.column}>
+                    <Text style={Styles.mediumText}>{this.state.city} , {this.state.county} , {this.state.state}</Text>
+                </View>
             </View>
         );
     }

@@ -4,6 +4,7 @@ import {
     Text,
     View,
 } from 'react-native';
+import Styles from "../Assets/Styles";
 
 export default class WeatherBlock extends Component<{},{}>{
     constructor(){
@@ -62,7 +63,7 @@ export default class WeatherBlock extends Component<{},{}>{
         if(this.state.weatherData){
             weather = this.state.weatherData.map((entry, index) => {
                 return(
-                    <View key={index}>
+                    <View key={index} style={[Styles.box, Styles.column]}>
                         <Text>{entry.max.weather[0].main}</Text>
                         <Text>
                             {Math.round(entry.max.main.temp)}
@@ -76,8 +77,12 @@ export default class WeatherBlock extends Component<{},{}>{
 
         return(
             <View style={this.props.style}>
-                <Text>Weather: </Text>
-                {weather ? weather : <Text/>}
+                <View style={Styles.column}>
+                    <Text>Weather: </Text>
+                    <View style={Styles.row}>
+                        {weather ? weather : <Text/>}
+                    </View>
+                </View>
             </View>
         );
     }

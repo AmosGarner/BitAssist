@@ -5,18 +5,20 @@ import {
     View,
 
 } from 'react-native';
+import Styles from '../Assets/Styles';
 
 export default class TimeBlock extends Component<{},{}>{
     render(){
         return(
             <View style={this.props.style}>
-                <Text>Time Block: {(this.props.time.militaryTime)?"Military":"Standard"}</Text>
-                <Text>
-                    {this.props.time.hour}:
-                    {this.props.time.minute}:
-                    {this.props.time.second + " "}
-                    {this.props.time.indicator}
-                </Text>
+                <View style={Styles.column}>
+                    <Text style={Styles.largeText}>
+                        {this.props.time.hour}:
+                        {this.props.time.minute}:
+                        {this.props.time.second + " "}
+                        {this.props.time.indicator}
+                    </Text>
+                </View>
             </View>
         );
     }
