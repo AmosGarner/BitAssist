@@ -60,14 +60,16 @@ export default class WeatherBlock extends Component<{},{}>{
     render(){
         let weather = null;
         if(this.state.weatherData){
-            console.log(this.state.weatherData);
             weather = this.state.weatherData.map((entry, index) => {
-                console.log(this.state.weatherData);
-                entry.map((data, index) => {
-                    console.log(data);
-                });
                 return(
-                    <Text key={index}> :  / </Text>
+                    <View key={index}>
+                        <Text>{entry.max.weather[0].main}</Text>
+                        <Text>
+                            {Math.round(entry.max.main.temp)}
+                            /
+                            {Math.round(entry.min.main.temp)}
+                        </Text>
+                    </View>
                 );
             });
         }
