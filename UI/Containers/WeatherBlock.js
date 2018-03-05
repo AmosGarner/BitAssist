@@ -26,7 +26,7 @@ export default class WeatherBlock extends Component<{},{}>{
     }
 
     getWeatherDateFromCoords(latitude, longitude){
-        fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+'37'+'&lon='+'82'+'&units=imperial&appid=b14b4133950802096d4bc54c755c28cb')
+        fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+latitude+'&lon='+longitude+'&units=imperial&appid=b14b4133950802096d4bc54c755c28cb')
             .then((response) => response.json())
             .then((response) => {
                 let weatherData = [
