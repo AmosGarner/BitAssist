@@ -37,5 +37,31 @@ export default {
     },
     "mediumText":{
         "fontSize": 30
+    },
+    "binaryContainer":{
+        "flex": 1,
+        "marginLeft": 25,
+        "marginRight": 25,
+        "backgroundColor": '#1f1fde',
+    },
+    "binaryRow":{
+        "flex": 1,
+        "flexDirection": 'row',
+    },
+    "binaryColumn":{
+        "flex": 1,
+        "flexDirection": 'column',
+        "marginLeft": 5,
+        "marginRight": 5
+    },
+    "binaryCell":{
+        "flex": 1,
+        "flexDirection": 'column',
+        "backgroundColor": '#54f8ff',
+        "justifyContent":'center',
+        "alignItems":'center',
+    },
+    "binaryDot" : {
+        "flex": 1,
     }
 }

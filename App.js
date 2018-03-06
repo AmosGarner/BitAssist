@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 import {
-  Platform,
-  View,
+    Platform,
+    View,
 } from 'react-native';
 
 import TimeBlock from './UI/Containers/TimeBlock';
@@ -14,7 +14,6 @@ import BinTimeBlock from "./UI/Containers/BinTimeBlock";
 import WeatherBlock from "./UI/Containers/WeatherBlock";
 import LocationBlock from "./UI/Containers/LocationBlock";
 import Styles from "./UI/Assets/Styles";
-
 
 export default class App extends Component<{},State> {
 
