@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import {dec2Bin} from '../../Domain/BaseConvertor';
 import Styles from '../Assets/Styles';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class BinTimeBlock extends Component<{},{}>{
     render(){
@@ -18,48 +18,48 @@ export default class BinTimeBlock extends Component<{},{}>{
                         <View style={Styles.binaryColumn}>
                             <View style={Styles.binaryRow}>
                                 <View style={Styles.binaryCell}>
-                                    <Icon name="stop" backgroundColor="#3b5998" size={20} style='solid'/>
-                                    <Icon name='stop-circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
+                                    <Icon name="ios-egg-outline" size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
                                 </View>
                                 <View style={Styles.binaryCell}>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                </View>
-                            </View>
-                        </View>
-                        <View style={Styles.binaryColumn}>
-                            <View style={Styles.binaryRow}>
-                                <View style={Styles.binaryCell}>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                </View>
-                                <View style={Styles.binaryCell}>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
+                                    <Icon name="ios-egg-outline" size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
                                 </View>
                             </View>
                         </View>
                         <View style={Styles.binaryColumn}>
                             <View style={Styles.binaryRow}>
                                 <View style={Styles.binaryCell}>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
+                                    <Icon name="ios-egg-outline" size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
                                 </View>
                                 <View style={Styles.binaryCell}>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
-                                    <Icon name='circle' size={20}/>
+                                    <Icon name="ios-egg-outline" size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                </View>
+                            </View>
+                        </View>
+                        <View style={Styles.binaryColumn}>
+                            <View style={Styles.binaryRow}>
+                                <View style={Styles.binaryCell}>
+                                    <Icon name="ios-egg-outline" size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                </View>
+                                <View style={Styles.binaryCell}>
+                                    <Icon name="ios-egg-outline" size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
+                                    <Icon name='ios-egg' size={20}/>
                                 </View>
                             </View>
                         </View>

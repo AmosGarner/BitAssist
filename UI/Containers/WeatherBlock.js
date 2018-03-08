@@ -5,6 +5,7 @@ import {
     View,
 } from 'react-native';
 import Styles from "../Assets/Styles";
+import WeatherIcon from "../Components/WeatherIcon";
 
 export default class WeatherBlock extends Component<{},{}>{
     constructor(){

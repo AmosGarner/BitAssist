@@ -8,7 +8,13 @@ export default {
         "justifyContent": 'space-around',
     },
     "header":{
-        "flex":0.1
+        "flex": 0.08,
+        "marginTop": 15,
+        "marginBottom": 10,
+        "backgroundColor": '#ffffff',
+        "flexDirection": 'row',
+        "justifyContent": 'center',
+        "alignItems": 'center'
     },
     "content":{
         "flex": 1
@@ -63,5 +69,5 @@ export default {
     },
     "binaryDot" : {
         "flex": 1,
-    }
+    },
 }

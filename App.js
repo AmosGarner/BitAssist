@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import {
     Platform,
     View,
+    Text
 } from 'react-native';
 
+import HeaderBlock from './UI/Containers/HeaderBlock';
 import TimeBlock from './UI/Containers/TimeBlock';
 import TimeObject from './Domain/TimeObject';
 import DateObject from './Domain/DateObject';
@@ -21,7 +23,9 @@ export default class App extends Component<{},State> {
     let timeObject = new TimeObject();
     return (
       <View style={[Styles.appContainer, Styles.ios]}>
-          <View style={Styles.header}/>
+          <View style={Styles.header}>
+              <HeaderBlock/>
+          </View>
           <View style={Styles.content}>
               <TimeBlock style={[Styles.row]} time={timeObject}/>
               <BinTimeBlock style={[Styles.row]} time={timeObject}/>
