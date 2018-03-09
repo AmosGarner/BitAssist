@@ -11,7 +11,7 @@ export default {
         "flex": 0.08,
         "marginTop": 20,
         "marginBottom": 10,
-        "backgroundColor": '#ffffff',
+        "backgroundColor": 'grey',
         "flexDirection": 'row',
         "justifyContent": 'center',
         "alignItems": 'center'

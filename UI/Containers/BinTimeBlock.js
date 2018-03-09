@@ -11,7 +11,6 @@ import BinaryIcon from '../Components/BinaryIcon';
 
 export default class BinTimeBlock extends Component<{},{}>{
     render(){
-        console.log(this.props.time);
         return(
             <View style={this.props.style}>
                 <View style={Styles.binaryContainer}>
@@ -39,17 +38,11 @@ export default class BinTimeBlock extends Component<{},{}>{
     }
 
     generateBinaryCell(value){
-        let binaryValueArray = dec2Bin(value).toString().split('');
-        let binaryArray = [0,0,0,0];
-
-        binaryArray = binaryArray.map((value, index) => {
-            if(binaryValueArray[index] === "1"){
-                return 1;
-            }
-            return 0;
-        });
-
-        let binaryCell = binaryArray.reverse().map((value, index) => {
+        String.prototype.paddingStart = function (paddingValue) {
+            return String(paddingValue + this).slice(-paddingValue.length);
+        };
+        let binaryArray = dec2Bin(value).toString().paddingStart('0000').split('');
+        let binaryCell = binaryArray.map((value, index) => {
             return(
                 <BinaryIcon key={index} value={value}/>
             );

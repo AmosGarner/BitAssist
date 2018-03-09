@@ -7,6 +7,7 @@ import {
 import Styles from "../Assets/Styles";
 import WeatherIcon from "../Components/WeatherIcon";
 import Icon from 'react-native-vector-icons/Ionicons';
+import FIcon from 'react-native-vector-icons/FontAwesome';
 
 export default class WeatherBlock extends Component<{},{}>{
     constructor(){
@@ -71,16 +72,23 @@ export default class WeatherBlock extends Component<{},{}>{
                 let month = (date[5] === "0" ?" "+date[6]:date[5]+date[6]);
                 let day = (date[8] === "0" ?" "+date[9]:date[8]+date[9]);
 
-                let thermometerColor = 'grey';
+                let weatherCondition = entry.max.weather[0].main;
+
+                let thermometerColor = 'orange';
                 if(high >= 80){
                     thermometerColor = 'red';
                 }else if(high <= 50){
                     thermometerColor = 'lightblue';
                 }
 
+                let motorcycleColor = 'grey';
+                if(high >= 50 && (weatherCondition === "Clear" || weatherCondition === "Cloudy")){
+                    motorcycleColor = 'orange';
+                }
+
                 return(
                     <View key={index} style={[Styles.box, Styles.column]}>
-                        <WeatherIcon weatherCondition={entry.max.weather[0].main}/>
+                        <WeatherIcon weatherCondition={weatherCondition}/>
                         <Text>
                             <Icon name='ios-thermometer' size={20} color={thermometerColor}/>
                             &nbsp;
@@ -94,6 +102,9 @@ export default class WeatherBlock extends Component<{},{}>{
                             {month}
                             /
                             {day}
+                        </Text>
+                        <Text>
+                            <FIcon name='motorcycle' size={20} color={motorcycleColor}/>
                         </Text>
                     </View>
                 );

@@ -10,7 +10,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 export default class BinaryIcon extends Component<{},{}>{
     render(){
         let iconColor = 'grey';
-        if(this.props.value === 1){
+        if(this.props.value === '1'){
             iconColor = 'orange';
         }
 
