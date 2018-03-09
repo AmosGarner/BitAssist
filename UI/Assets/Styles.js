@@ -9,7 +9,7 @@ export default {
     },
     "header":{
         "flex": 0.08,
-        "marginTop": 15,
+        "marginTop": 20,
         "marginBottom": 10,
         "backgroundColor": '#ffffff',
         "flexDirection": 'row',
@@ -23,12 +23,10 @@ export default {
         "flex": 1,
         "flexDirection": 'row',
         "marginBottom": 10,
-        "backgroundColor": '#9bde7c'
     },
     "column":{
         "flex": 1,
         "flexDirection": 'column',
-        "backgroundColor": '#de2c2b',
         "justifyContent": 'center',
         "alignItems": 'center'
     },
@@ -48,7 +46,6 @@ export default {
         "flex": 1,
         "marginLeft": 25,
         "marginRight": 25,
-        "backgroundColor": '#1f1fde',
     },
     "binaryRow":{
         "flex": 1,
@@ -63,11 +60,7 @@ export default {
     "binaryCell":{
         "flex": 1,
         "flexDirection": 'column',
-        "backgroundColor": '#54f8ff',
         "justifyContent":'center',
         "alignItems":'center',
-    },
-    "binaryDot" : {
-        "flex": 1,
-    },
+    }
 }
