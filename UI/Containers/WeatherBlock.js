@@ -64,7 +64,6 @@ export default class WeatherBlock extends Component<{},{}>{
         let weather = null;
         if(this.state.weatherData){
             weather = this.state.weatherData.map((entry, index) => {
-                console.log(entry);
                 let low = Math.floor(entry.min.main.temp_min);
                 let high = Math.floor(entry.max.main.temp_max);
                 let date = entry.min.dt_txt;
