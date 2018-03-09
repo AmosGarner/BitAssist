@@ -65,7 +65,7 @@ export default class WeatherBlock extends Component<{},{}>{
             weather = this.state.weatherData.map((entry, index) => {
                 return(
                     <View key={index} style={[Styles.box, Styles.column]}>
-                        <Text>{entry.max.weather[0].main}</Text>
+                        <WeatherIcon weatherCondition={entry.max.weather[0].main}/>
                         <Text>
                             {Math.round(entry.max.main.temp)}
                             /
@@ -79,7 +79,6 @@ export default class WeatherBlock extends Component<{},{}>{
         return(
             <View style={this.props.style}>
                 <View style={Styles.column}>
-                    <Text>Weather: </Text>
                     <View style={Styles.row}>
                         {weather ? weather : <Text/>}
                     </View>
