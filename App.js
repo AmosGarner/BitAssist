@@ -16,14 +16,14 @@ import BinTimeBlock from "./UI/Containers/BinTimeBlock";
 import WeatherBlock from "./UI/Containers/WeatherBlock";
 import LocationBlock from "./UI/Containers/LocationBlock";
 import Styles from "./UI/Assets/Styles";
-import TimerMixin from 'react-timer-mixin';
 
 export default class App extends Component<{},State> {
     constructor(){
         super();
         this.state = {
-            timeObject : new TimeObject()
-        }
+            timeObject : new TimeObject(),
+            headerTitle : 'Nerd Thirty',
+        };
     }
 
     componentDidMount(){
@@ -35,21 +35,29 @@ export default class App extends Component<{},State> {
     }
 
     render() {
+        let headerTitle = this.state.headerTitle;
+
         return (
           <View style={[Styles.appContainer, Styles.ios]}>
               <View style={Styles.header}>
-                  <HeaderBlock/>
+                  <HeaderBlock style={Styles.row} title={headerTitle}/>
               </View>
-              <View style={Styles.content}>
-                  <TimeBlock style={[Styles.row]} time={this.state.timeObject}/>
-                  <BinTimeBlock style={[Styles.row]} time={this.state.timeObject}/>
-                  <HexTimeBlock style={[Styles.row]} time={this.state.timeObject}/>
-                  <DateBlock style={[Styles.row]} date={new DateObject()}/>
-                  <WeatherBlock style={[Styles.row]} />
-                  <LocationBlock style={[Styles.row]}/>
-              </View>
+              {this.renderAppContent()}
               <View style={Styles.footer}/>
           </View>
         );
-  }
+    }
+
+    renderAppContent() {
+        return(
+            <View style={Styles.content}>
+                <TimeBlock style={[Styles.row]} time={this.state.timeObject}/>
+                <BinTimeBlock style={[Styles.row]} time={this.state.timeObject}/>
+                <HexTimeBlock style={[Styles.row]} time={this.state.timeObject}/>
+                <DateBlock style={[Styles.row]} date={new DateObject()}/>
+                <WeatherBlock style={[Styles.row]}/>
+                <LocationBlock style={[Styles.row]}/>
+            </View>
+        );
+    }
 }

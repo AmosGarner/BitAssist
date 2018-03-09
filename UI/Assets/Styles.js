@@ -12,7 +12,10 @@ export default {
         "marginTop": 20,
         "marginBottom": 10,
         "backgroundColor": 'grey',
-        "flexDirection": 'row',
+    },
+    "headerButton":{
+        "flex": 0.25,
+        "flexDirection": 'column',
         "justifyContent": 'center',
         "alignItems": 'center'
     },
