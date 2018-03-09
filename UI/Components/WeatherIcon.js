@@ -9,7 +9,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 export default class WeatherIcon extends Component<{},{}>{
     render(){
-        console.log(this.props.weatherCondition);
         let iconName;
         switch (this.props.weatherCondition){
             case "Thunderstorm":

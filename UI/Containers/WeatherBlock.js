@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import Styles from "../Assets/Styles";
 import WeatherIcon from "../Components/WeatherIcon";
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export default class WeatherBlock extends Component<{},{}>{
     constructor(){
@@ -33,23 +34,23 @@ export default class WeatherBlock extends Component<{},{}>{
                 let weatherData = [
                     {
                         min : response.list[0],
-                        max : response.list[4]
+                        max : response.list[1]
                     },
                     {
-                        min : response.list[8],
-                        max : response.list[12]
+                        min : response.list[2],
+                        max : response.list[7]
                     },
                     {
-                        min : response.list[16],
-                        max : response.list[20]
+                        min : response.list[10],
+                        max : response.list[15]
                     },
                     {
-                        min : response.list[24],
-                        max : response.list[28]
+                        min : response.list[18],
+                        max : response.list[23]
                     },
                     {
-                        min : response.list[32],
-                        max : response.list[36]
+                        min : response.list[26],
+                        max : response.list[39]
                     }
                 ];
                 this.setState({
@@ -63,13 +64,37 @@ export default class WeatherBlock extends Component<{},{}>{
         let weather = null;
         if(this.state.weatherData){
             weather = this.state.weatherData.map((entry, index) => {
+                console.log(entry);
+                let low = Math.floor(entry.min.main.temp_min);
+                let high = Math.floor(entry.max.main.temp_max);
+                let date = entry.min.dt_txt;
+
+                let month = (date[5] === "0" ?" "+date[6]:date[5]+date[6]);
+                let day = (date[8] === "0" ?" "+date[9]:date[8]+date[9]);
+
+                let thermometerColor = 'grey';
+                if(high >= 80){
+                    thermometerColor = 'red';
+                }else if(high <= 50){
+                    thermometerColor = 'lightblue';
+                }
+
                 return(
                     <View key={index} style={[Styles.box, Styles.column]}>
                         <WeatherIcon weatherCondition={entry.max.weather[0].main}/>
                         <Text>
-                            {Math.round(entry.max.main.temp)}
+                            <Icon name='ios-thermometer' size={20} color={thermometerColor}/>
+                            &nbsp;
+                            {low}
                             /
-                            {Math.round(entry.min.main.temp)}
+                            {high}
+                        </Text>
+                        <Text>
+                            <Icon name='md-calendar' size={20} color='grey'/>
+                            &nbsp;
+                            {month}
+                            /
+                            {day}
                         </Text>
                     </View>
                 );
