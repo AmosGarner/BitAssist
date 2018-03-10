@@ -3,12 +3,13 @@ import {
     View,
     Text
 }from 'react-native';
+import Styles from '../../../Assets/Styles';
 
 export default class CommitScreen extends Component {
     render() {
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>CheckList!</Text>
+            <View style={Styles.content}>
+                <Text style={Styles.largeText}>CheckList!</Text>
             </View>
         );
     }
