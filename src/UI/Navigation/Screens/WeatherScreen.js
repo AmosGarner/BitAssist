@@ -1,8 +1,7 @@
 import React,{Component} from 'react';
 import {
     View,
-    Text,
-    Button
+    Text
 }from 'react-native';
 
 export default class WeatherScreen extends Component {

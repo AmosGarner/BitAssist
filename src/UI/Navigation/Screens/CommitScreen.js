@@ -1,15 +1,14 @@
 import React,{Component} from 'react';
 import {
     View,
-    Text,
-    Button
+    Text
 }from 'react-native';
 
-export default class SettingsScreen extends Component {
+export default class CommitScreen extends Component {
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Settings!</Text>
+                <Text>CheckList!</Text>
             </View>
         );
     }

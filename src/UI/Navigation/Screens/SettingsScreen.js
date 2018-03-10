@@ -2,14 +2,16 @@ import React,{Component} from 'react';
 import {
     View,
     Text,
-    Button
 }from 'react-native';
 
-export default class CommitScreen extends Component {
+export default class SettingsScreen extends Component {
+    static navigationOptions = {
+        title:'Time Settings'
+    };
     render() {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>CheckList!</Text>
+                <Text>{SettingsScreen.navigationOptions.title}!</Text>
             </View>
         );
     }
