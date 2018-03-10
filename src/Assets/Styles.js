@@ -53,7 +53,8 @@ export default {
     listItem: {
         paddingTop: 2,
         paddingBottom: 2,
-        fontSize: 18
+        fontSize: 16,
+        alignItems: "flex-start"
     },
     listItemCont: {
         flexDirection: "row",
@@ -70,6 +71,7 @@ export default {
         paddingLeft: 10,
         borderColor: "gray",
         borderWidth: 1,
-        width: "100%"
+        width: "100%",
+        color: 'white'
     }
 };
