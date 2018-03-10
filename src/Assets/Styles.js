@@ -23,6 +23,9 @@ export default {
         fontSize: 30,
         color: 'lightgrey'
     },
+    box:{
+        justifyContent:'center'
+    },
     binaryContainer:{
         flex: 1,
         marginLeft: 25,

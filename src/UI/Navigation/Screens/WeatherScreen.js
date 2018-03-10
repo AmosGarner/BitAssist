@@ -3,12 +3,16 @@ import {
     View,
     Text
 }from 'react-native';
+import Styles from "../../../Assets/Styles";
+import WeatherBlock from "../../Containers/WeatherBlock";
+import LocationBlock from "../../Containers/LocationBlock";
 
 export default class WeatherScreen extends Component {
     render() {
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Weather!</Text>
+            <View style={Styles.content}>
+                <LocationBlock/>
+                <WeatherBlock/>
             </View>
         );
     }

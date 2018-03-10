@@ -59,7 +59,7 @@ export default class LocationBlock extends Component<{},{}>{
         }
 
         return(
-            <View style={this.props.style}>
+            <View style={Styles.row}>
                 <View style={Styles.column}>
                     {content}
                 </View>
