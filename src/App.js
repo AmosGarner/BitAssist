@@ -4,13 +4,13 @@ import ClockScreen from './UI/Screens/ClockScreen';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import SettingsScreen from "./UI/Screens/SettingsScreen";
 import WeatherScreen from "./UI/Screens/WeatherScreen";
-import TodoScreen from "./UI/Screens/TodoScreen";
+import CommitScreen from "./UI/Screens/CommitScreen";
 
 export default TabNavigator(
     {
         Clock: { screen: ClockScreen },
         Weather:{screen: WeatherScreen},
-        Todo:{screen: TodoScreen},
+        Commit:{screen: CommitScreen},
         Settings:{screen: SettingsScreen},
     },
     {
@@ -25,7 +25,7 @@ export default TabNavigator(
                     case "Weather":
                         iconName = `ios-cloud${focused ? '' : '-outline'}`;;
                         break;
-                    case "Todo":
+                    case "Commit":
                         iconName = `ios-git-commit${focused ? '' : '-outline'}`;;
                         break;
                     case "Settings":
