@@ -6,16 +6,16 @@ import {
     Text
 } from 'react-native';
 
-import HeaderBlock from './src/UI/Containers/HeaderBlock';
-import TimeBlock from './src/UI/Containers/TimeBlock';
-import TimeObject from './src/Domain/TimeObject';
-import DateObject from './src/Domain/DateObject';
-import DateBlock from "./src/UI/Containers/DateBlock";
-import HexTimeBlock from "./src/UI/Containers/HexTimeBlock";
-import BinTimeBlock from "./src/UI/Containers/BinTimeBlock";
-import WeatherBlock from "./src/UI/Containers/WeatherBlock";
-import LocationBlock from "./src/UI/Containers/LocationBlock";
-import Styles from "./src/UI/Assets/Styles";
+import HeaderBlock from './UI/Containers/HeaderBlock';
+import TimeBlock from './UI/Containers/TimeBlock';
+import TimeObject from './Domain/TimeObject';
+import DateObject from './Domain/DateObject';
+import DateBlock from "./UI/Containers/DateBlock";
+import HexTimeBlock from "./UI/Containers/HexTimeBlock";
+import BinTimeBlock from "./UI/Containers/BinTimeBlock";
+import WeatherBlock from "./UI/Containers/WeatherBlock";
+import LocationBlock from "./UI/Containers/LocationBlock";
+import Styles from "./UI/Assets/Styles";
 
 export default class App extends Component<{},State> {
     constructor(){
@@ -23,7 +23,7 @@ export default class App extends Component<{},State> {
         super();
         this.state = {
             timeObject : new TimeObject(),
-            headerTitle : 'Nerd Thirty',
+            headerTitle : 'Bit Assist',
         };
     }
 

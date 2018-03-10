@@ -11,7 +11,7 @@ export default class HeaderBlock extends Component<{},{}>{
         return(
             <View style={this.props.style}>
                 <View style={Styles.column}>
-                    <Text style={Styles.mediumText}>BitAssist</Text>
+                    <Text style={Styles.mediumText}>{this.props.title}</Text>
                 </View>
             </View>
         );
