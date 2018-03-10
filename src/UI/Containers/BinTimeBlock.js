@@ -12,7 +12,7 @@ import BinaryIcon from '../Components/BinaryIcon';
 export default class BinTimeBlock extends Component<{},{}>{
     render(){
         return(
-            <View style={this.props.style}>
+            <View style={Styles.row}>
                 <View style={Styles.binaryContainer}>
                     <View style={Styles.binaryRow}>
                         {this.getBinaryGrid(this.props.time.hour)}

@@ -10,7 +10,7 @@ import Styles from '../../Assets/Styles';
 export default class TimeBlock extends Component<{},{}>{
     render(){
         return(
-            <View style={this.props.style}>
+            <View style={Styles.row}>
                 <View style={Styles.column}>
                     <Text style={Styles.largeText}>
                         {this.props.time.hour}:

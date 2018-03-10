@@ -11,7 +11,7 @@ import Styles from '../../Assets/Styles';
 export default class HexTimeBlock extends Component<{},{}>{
     render(){
         return(
-            <View style={this.props.style}>
+            <View style={Styles.row}>
                 <View style={Styles.column}>
                     <Text style={Styles.largeText}>
                         #{dec2Hex(this.props.time.hour)}:

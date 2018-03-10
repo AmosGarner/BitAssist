@@ -16,7 +16,7 @@ export default class BinaryIcon extends Component<{},{}>{
 
         return(
             <View>
-                <Icon name='ios-disc' size={20} color={iconColor}/>
+                <Icon name='ios-disc' size={40} color={iconColor}/>
             </View>
         );
     }

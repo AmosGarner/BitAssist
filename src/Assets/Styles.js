@@ -1,69 +1,47 @@
 export default {
-    "ios" : {
-        "backgroundColor": '#46413c',
+    content:{
+        backgroundColor: '#46413c',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    "appContainer" : {
-        "flex": 1,
-        "flexDirection": 'column',
-        "justifyContent": 'space-around',
+    row:{
+        flex: 1,
+        flexDirection: 'row',
     },
-    "header":{
-        "flex": 0.08,
-        "marginTop": 20,
-        "marginBottom": 10,
-        "backgroundColor": 'grey',
+    column:{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
-    "headerButton":{
-        "flex": 0.25,
-        "flexDirection": 'column',
-        "justifyContent": 'center',
-        "alignItems": 'center'
+    largeText:{
+        fontSize: 35,
+        color: 'lightgrey'
     },
-    "content":{
-        "flex": 1
+    mediumText:{
+        fontSize: 30,
+        color: 'lightgrey'
     },
-    "row":{
-        "flex": 1,
-        "flexDirection": 'row',
-        "marginBottom": 10,
+    binaryContainer:{
+        flex: 1,
+        marginLeft: 25,
+        marginRight: 25
     },
-    "column":{
-        "flex": 1,
-        "flexDirection": 'column',
-        "justifyContent": 'center',
-        "alignItems": 'center'
+    binaryRow:{
+        flex: 1,
+        flexDirection: 'row'
     },
-    "box": {
-        "justifyContent":'center',
+    binaryColumn:{
+        flex: 1,
+        flexDirection: 'column',
+        marginLeft: 5,
+        marginRight: 5
     },
-    "footer":{
-       "flex":0.05
-    },
-    "largeText":{
-        "fontSize": 35
-    },
-    "mediumText":{
-        "fontSize": 30
-    },
-    "binaryContainer":{
-        "flex": 1,
-        "marginLeft": 25,
-        "marginRight": 25,
-    },
-    "binaryRow":{
-        "flex": 1,
-        "flexDirection": 'row',
-    },
-    "binaryColumn":{
-        "flex": 1,
-        "flexDirection": 'column',
-        "marginLeft": 5,
-        "marginRight": 5
-    },
-    "binaryCell":{
-        "flex": 1,
-        "flexDirection": 'column',
-        "justifyContent":'center',
-        "alignItems":'center',
+    binaryCell:{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
     }
-}
+};
