@@ -54,7 +54,8 @@ export default {
         paddingTop: 2,
         paddingBottom: 2,
         fontSize: 16,
-        alignItems: "flex-start"
+        alignItems: "flex-start",
+        color: 'lightgray'
     },
     listItemCont: {
         flexDirection: "row",
@@ -69,9 +70,9 @@ export default {
         height: 40,
         paddingRight: 10,
         paddingLeft: 10,
-        borderColor: "gray",
+        borderColor: 'grey',
         borderWidth: 1,
         width: "100%",
-        color: 'white'
+        backgroundColor: 'white'
     }
 };
