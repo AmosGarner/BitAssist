@@ -6,7 +6,7 @@ import {
 
 } from 'react-native';
 import {dec2Hex} from '../../Domain/BaseConvertor';
-import Styles from '../Assets/Styles';
+import Styles from '../../Assets/Styles';
 
 export default class HexTimeBlock extends Component<{},{}>{
     render(){

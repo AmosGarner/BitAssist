@@ -5,7 +5,7 @@ import {
     View,
 
 } from 'react-native';
-import Styles from "../Assets/Styles";
+import Styles from "../../Assets/Styles";
 
 export default class DateBlock extends Component<{},{}>{
     render(){

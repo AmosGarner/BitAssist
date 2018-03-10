@@ -6,7 +6,7 @@ import {
 
 } from 'react-native';
 import {dec2Bin} from '../../Domain/BaseConvertor';
-import Styles from '../Assets/Styles';
+import Styles from '../../Assets/Styles';
 import BinaryIcon from '../Components/BinaryIcon';
 
 export default class BinTimeBlock extends Component<{},{}>{

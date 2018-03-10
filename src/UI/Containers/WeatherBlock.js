@@ -4,7 +4,7 @@ import {
     Text,
     View,
 } from 'react-native';
-import Styles from "../Assets/Styles";
+import Styles from "../../Assets/Styles";
 import WeatherIcon from "../Components/WeatherIcon";
 import Icon from 'react-native-vector-icons/Ionicons';
 import FIcon from 'react-native-vector-icons/FontAwesome';
