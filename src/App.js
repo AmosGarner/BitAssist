@@ -1,64 +1,54 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { TabNavigator, TabBarBottom } from 'react-navigation';
+import ClockScreen from './UI/Screens/ClockScreen';
+import IonIcon from 'react-native-vector-icons/Ionicons';
+import SettingsScreen from "./UI/Screens/SettingsScreen";
+import WeatherScreen from "./UI/Screens/WeatherScreen";
+import TodoScreen from "./UI/Screens/TodoScreen";
 
-import {
-    Platform,
-    View,
-    Text
-} from 'react-native';
-
-import HeaderBlock from './UI/Containers/HeaderBlock';
-import TimeBlock from './UI/Containers/TimeBlock';
-import TimeObject from './Domain/TimeObject';
-import DateObject from './Domain/DateObject';
-import DateBlock from "./UI/Containers/DateBlock";
-import HexTimeBlock from "./UI/Containers/HexTimeBlock";
-import BinTimeBlock from "./UI/Containers/BinTimeBlock";
-import WeatherBlock from "./UI/Containers/WeatherBlock";
-import LocationBlock from "./UI/Containers/LocationBlock";
-import Styles from "./UI/Assets/Styles";
-
-export default class App extends Component<{},State> {
-    constructor(){
-        console.disableYellowBox = true;
-        super();
-        this.state = {
-            timeObject : new TimeObject(),
-            headerTitle : 'Bit Assist',
-        };
+export default TabNavigator(
+    {
+        Clock: { screen: ClockScreen },
+        Weather:{screen: WeatherScreen},
+        Todo:{screen: TodoScreen},
+        Settings:{screen: SettingsScreen},
+    },
+    {
+        navigationOptions: ({ navigation }) => ({
+            tabBarIcon: ({ focused, tintColor }) => {
+                const { routeName } = navigation.state;
+                let iconName;
+                switch(routeName){
+                    case "Clock":
+                        iconName = `ios-clock${focused ? '' : '-outline'}`;
+                        break;
+                    case "Weather":
+                        iconName = `ios-cloud${focused ? '' : '-outline'}`;;
+                        break;
+                    case "Todo":
+                        iconName = `ios-git-commit${focused ? '' : '-outline'}`;;
+                        break;
+                    case "Settings":
+                        iconName = `ios-construct${focused ? '' : '-outline'}`;;
+                        break;
+                    default:
+                        iconName = `ios-help${focused ? '' : '-outline'}`;;
+                        break;
+                }
+                return <IonIcon name={iconName} size={40} color={tintColor} />;
+            },
+        }),
+        tabBarOptions: {
+            activeTintColor: 'orange',
+            inactiveTintColor: 'grey',
+            style: {
+                backgroundColor: '#333333'
+            },
+            showLabel: false
+        },
+        tabBarComponent: TabBarBottom,
+        tabBarPosition: 'bottom',
+        animationEnabled: true,
+        swipeEnabled: true,
     }
-
-    componentDidMount(){
-        this.interval = setInterval(() => {
-            this.setState({
-                timeObject: new TimeObject()
-            })
-        }, 1000);
-    }
-
-    render() {
-        let headerTitle = this.state.headerTitle;
-
-        return (
-          <View style={[Styles.appContainer, Styles.ios]}>
-              <View style={Styles.header}>
-                  <HeaderBlock style={Styles.row} title={headerTitle}/>
-              </View>
-              {this.renderAppContent()}
-              <View style={Styles.footer}/>
-          </View>
-        );
-    }
-
-    renderAppContent() {
-        return(
-            <View style={Styles.content}>
-                <TimeBlock style={[Styles.row]} time={this.state.timeObject}/>
-                <BinTimeBlock style={[Styles.row]} time={this.state.timeObject}/>
-                <HexTimeBlock style={[Styles.row]} time={this.state.timeObject}/>
-                <DateBlock style={[Styles.row]} date={new DateObject()}/>
-                <WeatherBlock style={[Styles.row]}/>
-                <LocationBlock style={[Styles.row]}/>
-            </View>
-        );
-    }
-}
+)
