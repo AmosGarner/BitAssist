@@ -10,10 +10,6 @@ export default class SettingsScreen extends Component {
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Text>Settings!</Text>
-                <Button
-                    title="Go to Home"
-                    onPress={() => this.props.navigation.navigate('Clock')}
-                />
             </View>
         );
     }
