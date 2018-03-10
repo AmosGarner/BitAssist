@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
+    ActivityIndicator,
     Text,
     View,
 } from 'react-native';
@@ -12,10 +12,19 @@ import FIcon from 'react-native-vector-icons/FontAwesome';
 export default class WeatherBlock extends Component<{},{}>{
     constructor(){
         super();
-        this.state = {};
+        this.state = {
+            isLoading : true
+        };
+    }
+
+    componentDidMount(){
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                this.getWeatherDateFromCoords(position.coords.latitude, position.coords.longitude);
+                this.setState({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude
+                });
+                this.getWeatherDateFromCoords();
             },
             (error) => {
                 alert(error.message);
@@ -28,8 +37,8 @@ export default class WeatherBlock extends Component<{},{}>{
         );
     }
 
-    getWeatherDateFromCoords(latitude, longitude){
-        fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+latitude+'&lon='+longitude+'&units=imperial&appid=b14b4133950802096d4bc54c755c28cb')
+    async getWeatherDateFromCoords(){
+        fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+this.state.latitude+'&lon='+this.state.longitude+'&units=imperial&appid=b14b4133950802096d4bc54c755c28cb')
             .then((response) => response.json())
             .then((response) => {
                 let weatherData = [
@@ -51,19 +60,21 @@ export default class WeatherBlock extends Component<{},{}>{
                     },
                     {
                         min : response.list[26],
-                        max : response.list[39]
+                        max : response.list[37]
                     }
                 ];
                 this.setState({
-                    weatherData: weatherData
+                    weatherData: weatherData,
+                    isLoading: false
                 });
             })
             .catch((error) => {console.log(error)})
     };
 
     render(){
+        let content = (<ActivityIndicator/>);
         let weather = null;
-        if(this.state.weatherData){
+        if(!this.state.isLoading){
             weather = this.state.weatherData.map((entry, index) => {
                 let low = Math.floor(entry.min.main.temp_min);
                 let high = Math.floor(entry.max.main.temp_max);
@@ -109,14 +120,17 @@ export default class WeatherBlock extends Component<{},{}>{
                     </View>
                 );
             });
+            content = (
+                <View style={Styles.row}>
+                    {weather ? weather : <Text/>}
+                </View>
+            );
         }
 
         return(
             <View style={this.props.style}>
                 <View style={Styles.column}>
-                    <View style={Styles.row}>
-                        {weather ? weather : <Text/>}
-                    </View>
+                    {content}
                 </View>
             </View>
         );

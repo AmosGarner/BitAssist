@@ -19,6 +19,7 @@ import Styles from "./UI/Assets/Styles";
 
 export default class App extends Component<{},State> {
     constructor(){
+        console.disableYellowBox = true;
         super();
         this.state = {
             timeObject : new TimeObject(),
