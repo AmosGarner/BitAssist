@@ -60,8 +60,11 @@ export default class CommitBlock extends Component<{},{}>{
     }
 
     deleteTask(index){
-        console.log(index);
-        console.log("Deleting Task: " + this.state.tasks[index]);
+        let tasks = this.state.tasks;
+        tasks.splice(index,1);
+        this.setState({
+            tasks: tasks
+        });
     };
 
     componentDidMount(){
@@ -84,8 +87,6 @@ export default class CommitBlock extends Component<{},{}>{
             }
         });
 
-        console.log(this.state.tasks);
-
         return (
             <View style={Styles.row}>
                 <View style={Styles.column}>
@@ -94,6 +95,7 @@ export default class CommitBlock extends Component<{},{}>{
                     <FlatList
                         style={Styles.list}
                         data={this.state.tasks}
+                        extraData={this.state}
                         renderItem={({ item, index }) => (
                             <View key={index}>
                                 <View style={Styles.listItemCont}>
@@ -110,6 +112,7 @@ export default class CommitBlock extends Component<{},{}>{
 
                     <TextInput
                         style={Styles.textInput}
+                        value={this.state.text}
                         onChangeText={this.changeTextHandler}
                         onSubmitEditing={this.addNewTask}
                         placeholder="Add Commitments"
